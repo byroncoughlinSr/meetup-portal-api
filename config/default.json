@@ -6,5 +6,29 @@
     "default": 10,
     "max": 50
   },
-  "mongodb": "mongodb://localhost:27017/meetup_portal_api"
+  "mongodb": "mongodb://localhost:27017/meetup_portal_api",
+  "authentication": {
+    "secret": "c97f5f0fc608d8389cdd569320ece5cb36017e4cd0f2419f0c328ef9864a1d42b5f0a5d5bc300b87056d3eec06287ad2999af77d18fcadcce03dfe6e01504a59747727d6a24e9ce2423ffa4111eef8883a0a73ac70070e482acf6ec3058855940350e28878a0af78943aea2730d94465b9751572d955ae657d995431f3545a4c360435ff4449e51ccad7f69d8747387ae3f6e485c2ad075c8138a64914166908805ec915d583e434d9752573a742a9b1875a00f23bcb971a470322649dd1f8cc03893a099b462a6979cedd894f008e31cdf9d9eb7cc13db9b8c904801a006fdaa1cfb8e9bb66fdbdfee7130e5d2e772baae28cad6fe35097bf66920b48ef5968",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "user",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
 }
