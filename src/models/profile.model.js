@@ -7,7 +7,9 @@ module.exports = function(app) {
   const { Schema } = mongooseClient;
   const profile = new Schema(
     {
-      username: { type: String, required: true }
+      username: { type: String, required: true },
+      fullname: {type: String, required: true  },
+      link: {type: String}
     },
     {
       timestamps: true
